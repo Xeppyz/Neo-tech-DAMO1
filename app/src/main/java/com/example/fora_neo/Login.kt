@@ -6,9 +6,11 @@ import android.os.Bundle
 import com.example.fora_neo.databinding.ActivityLoginBinding
 
 class Login : AppCompatActivity() {
+    private lateinit var binding: ActivityLoginBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val binding = ActivityLoginBinding.inflate(layoutInflater)
+        binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
     }
 }
