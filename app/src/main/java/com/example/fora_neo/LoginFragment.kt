@@ -5,7 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import com.example.fora_neo.databinding.FragmentLoginBinding
 
 
@@ -17,14 +17,14 @@ class LoginFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentLoginBinding.inflate(layoutInflater)
+        binding = FragmentLoginBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-binding.button.setOnClickListener {
-it.findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
+        binding.button.setOnClickListener {
+        findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
 
 }
     }
