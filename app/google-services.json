@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "216222417923",
+    "project_id": "fora-neo",
+    "storage_bucket": "fora-neo.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:216222417923:android:6672e126cc2b154ad07a36",
+        "android_client_info": {
+          "package_name": "com.example.fora_neo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "216222417923-vsas1scvcv7msuundrps4mfjs93qt6u8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB2Q-bCMORP1L5RPp_yzZK6sbehe3LtMRU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "216222417923-vsas1scvcv7msuundrps4mfjs93qt6u8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
