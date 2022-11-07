@@ -9,5 +9,6 @@
     <color name="white">#FFFFFFFF</color>
     <color name="azulitoPrincipal">#00BCD4</color>
     <color name="azulitoPrincipalVariante">#00B4CC</color>
+    <color name = "underLine">#BDB8B8</color>
 
 </resources>
