@@ -7,7 +7,7 @@
         android:angle="0"
         android:centerX="0%"
         android:startColor="@color/gradientLightBlue"
-        android:endColor="@color/gradientLightGreen"
+        android:endColor="@color/gradientViolet"
         android:type="linear"
         />
 

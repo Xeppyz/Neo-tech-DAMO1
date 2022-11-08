@@ -50,7 +50,7 @@
             android:layout_width="210dp"
             android:layout_height="40dp"
             android:layout_marginTop="24dp"
-            android:backgroundTint="#00BCD4"
+            android:backgroundTint="#376DF6"
             android:background="@drawable/custom_button"
             android:text="Iniciar sesion"
             android:textColor="@color/white" />
@@ -77,7 +77,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Registrate!"
-            android:textColor="#00BCD4" />
+            android:textColor="#376DF6" />
 
     </LinearLayout>
 
