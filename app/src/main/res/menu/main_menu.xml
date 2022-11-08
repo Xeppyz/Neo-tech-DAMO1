@@ -11,10 +11,12 @@ tools:showIn = "navigation_view"
             android:id="@+id/user"
             android:icon="@drawable/ic_user"
             android:title="Usuario" />
+
         <item
-            android:id="@+id/agregarDep"
-            android:icon="@drawable/ic_add_house"
-            android:title="Agregar Dep" />
+            android:id="@+id/house"
+            android:icon="@drawable/ic_baseline_house_24"
+            android:title="Inicio" />
+
         <item
             android:id="@+id/settings"
             android:icon="@drawable/ic_settings"
