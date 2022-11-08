@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+tools:showIn = "navigation_view"
+    >
+
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/user"
+            android:icon="@drawable/ic_user"
+            android:title="Usuario" />
+        <item
+            android:id="@+id/agregarDep"
+            android:icon="@drawable/ic_add_house"
+            android:title="Agregar Dep" />
+        <item
+            android:id="@+id/settings"
+            android:icon="@drawable/ic_settings"
+            android:title="Opciones" />
+
+
+    </group>
+
+</menu>
