@@ -30,7 +30,7 @@
         android:layout_marginTop="20dp"
         android:src="@drawable/ic_arrow_back_ios_new" />
     <ImageButton
-        android:id="@id/btnSettings"
+        android:id="@+id/btnSettings"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_settings"
