@@ -25,12 +25,12 @@ class HomeFragment : Fragment() {
         super.onCreate(savedInstanceState)
         binding = FragmentHomeBinding.inflate(layoutInflater)
 
-        val drawerLayout: DrawerLayout = binding.drawerLayout
+        /*val drawerLayout: DrawerLayout = binding.drawerLayout
         val navView: NavigationView = binding.navView
 
         toggle = ActionBarDrawerToggle(activity, drawerLayout, R.string.open, R.string.close)
         drawerLayout.addDrawerListener(toggle)
-        toggle.syncState()
+        toggle.syncState()*/
 
 
 
@@ -50,8 +50,8 @@ class HomeFragment : Fragment() {
 
 
 
-        binding.searchView.setOnClickListener {
-            it.findNavController().navigate(R.id.action_homeFragment_to_searchFragment) }
+        /*binding.searchView.setOnClickListener {
+            it.findNavController().navigate(R.id.action_homeFragment_to_searchFragment) }*/
     }
 
 
