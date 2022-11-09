@@ -35,7 +35,7 @@ class Signup : Fragment() {
         auth = Firebase.auth
 
         binding.btnSignup.setOnClickListener (View.OnClickListener {
-            val email: String = binding.etUser.text.toString().trim() { it <= ' ' }
+            val email: String = binding.etCorreo.text.toString().trim() { it <= ' ' }
             val pw: String = binding.etPw.text.toString().trim() { it <= ' ' }
             //val confirm_pw: String
 
