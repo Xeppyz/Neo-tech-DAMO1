@@ -14,12 +14,14 @@ import androidx.navigation.fragment.findNavController
 import com.example.fora_neo.databinding.ActivityMainBinding
 import com.example.fora_neo.databinding.FragmentHomeBinding
 import com.google.android.material.navigation.NavigationView
+import com.google.firebase.auth.FirebaseAuth
 
 
 class HomeFragment : Fragment() {
     private lateinit var binding: FragmentHomeBinding
     lateinit var toggle: ActionBarDrawerToggle
     lateinit var activityMainBinding: ActivityMainBinding
+    var auth = FirebaseAuth.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,6 +50,10 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        binding.tvLogOut.setOnClickListener{
+            findNavController().navigate(R.id.action_homeFragment_to_loginFragment)
+            auth.signOut()
+        }
 
 
         /*binding.searchView.setOnClickListener {
