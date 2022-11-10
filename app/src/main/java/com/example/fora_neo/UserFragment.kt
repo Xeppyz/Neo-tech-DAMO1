@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
@@ -36,6 +37,7 @@ class UserFragment : Fragment() {
         navView.setOnNavigationItemReselectedListener {
             when (it.itemId) {
                 R.id.house -> replaceFragment()
+                R.id.user -> Toast.makeText(context, "Ya estás en usuario", Toast.LENGTH_SHORT).show()
             }
             true
         }
