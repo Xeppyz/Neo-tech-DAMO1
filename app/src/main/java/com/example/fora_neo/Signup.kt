@@ -51,41 +51,49 @@ class Signup : Fragment() {
         binding.btnSignup.setOnClickListener (View.OnClickListener {
             val email: String = binding.etCorreo.text.toString().trim() { it <= ' ' }
             val pw: String = binding.etPw.text.toString().trim() { it <= ' ' }
-            val name:String = binding.etNombre.toString().trim() {it <= ' '}
+            val name:String = binding.etNombre.text.toString().trim() {it <= ' '}
 
 
             //val confirm_pw: String
 
-            if (validate(email, pw)){
-                 auth.createUserWithEmailAndPassword(email, pw)
-                     .addOnSuccessListener {
-                         val profile = UserProfileChangeRequest.Builder()
-                             .setDisplayName(name)
-                             .build()
-                         it.user!!.updateProfile(profile)
-                             .addOnSuccessListener {
-                                 AlertDialog.Builder(activity).apply {
-                                     setTitle("Cuenta creada")
-                                     setMessage("Cuenta creada satisfactoriamente")
-                                     setPositiveButton("Aceptar"){ _: DialogInterface, _: Int ->
-                                         findNavController().navigate(R.id.action_signup_to_loginFragment)
-                                     }
-                                 }.show()
-                             }
-                             .addOnFailureListener{
-                                 AlertDialog.Builder(activity).apply {
-                                     setTitle("Error")
-                                     setMessage(it.message)
-                                 }.show()
-                             }
+           signIn(email, pw, name)
 
 
-                     }
-                     .addOnFailureListener{
-                         AlertDialog.Builder(activity).apply {
-                             setTitle("Error")
-                             setMessage(it.message)
-                         }.show()
+        })
+
+        return binding.root
+    }
+    fun signIn(email:String, pw:String, name:String){
+        if (validate(email, pw)){
+            auth.createUserWithEmailAndPassword(email, pw)
+                .addOnSuccessListener {
+                    val profile = UserProfileChangeRequest.Builder()
+                        .setDisplayName(name)
+                        .build()
+                    it.user!!.updateProfile(profile)
+                        .addOnSuccessListener {
+                            AlertDialog.Builder(activity).apply {
+                                setTitle("Cuenta creada")
+                                setMessage(name)
+                                setPositiveButton("Aceptar"){ _: DialogInterface, _: Int ->
+                                    findNavController().navigate(R.id.action_signup_to_loginFragment)
+                                }
+                            }.show()
+                        }
+                        .addOnFailureListener{
+                            AlertDialog.Builder(activity).apply {
+                                setTitle("Error")
+                                setMessage(it.message)
+                            }.show()
+                        }
+
+
+                }
+                .addOnFailureListener{
+                    AlertDialog.Builder(activity).apply {
+                        setTitle("Error")
+                        setMessage(it.message)
+                    }.show()
 
                 }
 
@@ -93,15 +101,10 @@ class Signup : Fragment() {
 
 
 
-            }
-            else{
-                Toast.makeText(activity, "Algunos campos pueden estar erroneos. Vuelva a intentarlo.", Toast.LENGTH_LONG).show()
-            }
-
-
-        })
-
-        return binding.root
+        }
+        else{
+            Toast.makeText(activity, "Algunos campos pueden estar erroneos. Vuelva a intentarlo.", Toast.LENGTH_LONG).show()
+        }
     }
 
     fun validate(email: String?, pw: String?): Boolean {

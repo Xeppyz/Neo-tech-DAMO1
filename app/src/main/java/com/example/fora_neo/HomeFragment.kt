@@ -54,6 +54,7 @@ class HomeFragment : Fragment() {
             findNavController().navigate(R.id.action_homeFragment_to_loginFragment)
             auth.signOut()
         }
+        binding.tvDisplayName.text = auth.currentUser!!.displayName
 
 
         /*binding.searchView.setOnClickListener {
