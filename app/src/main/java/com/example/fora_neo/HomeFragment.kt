@@ -40,8 +40,6 @@ class HomeFragment : Fragment() {
         toggle.syncState()*/
 
 
-
-
     }
 
     override fun onCreateView(
@@ -51,44 +49,45 @@ class HomeFragment : Fragment() {
         binding = FragmentHomeBinding.inflate(layoutInflater)
         return binding.root
     }
+    @Suppress("DEPRECATION")
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
 
-val navView: BottomNavigationView = binding.navView
+        val navView: BottomNavigationView = binding.navView
 
 
-navView.setOnNavigationItemSelectedListener {
-when(it.itemId){
-R.id.user -> replaceFragment()
+        navView.setOnNavigationItemSelectedListener {
+            when (it.itemId) {
+                R.id.user -> replaceFragment()
+                R.id.house -> Toast.makeText(context, "Ya estás en Home", Toast.LENGTH_SHORT).show()
 
-}
-    true
-}
+            }
+            true
+        }
 
 
         binding.buscarDep.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment_to_searchFragment)
         }
-        binding.tvLogOut.setOnClickListener{
+        binding.tvLogOut.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment_to_loginFragment)
             auth.signOut()
         }
         binding.tvDisplayName.text = auth.currentUser!!.displayName
 
 
-
     }
 
-    private fun replaceFragment(){
+    private fun replaceFragment() {
         findNavController().navigate(R.id.action_homeFragment_to_userFragment)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-if(toggle.onOptionsItemSelected(item)){
-return true
-}
+        if (toggle.onOptionsItemSelected(item)) {
+            return true
+        }
         return true
     }
 
