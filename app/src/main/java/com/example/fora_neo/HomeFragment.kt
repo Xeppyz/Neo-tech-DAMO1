@@ -58,6 +58,7 @@ class HomeFragment : Fragment() {
 
 val navView: BottomNavigationView = binding.navView
 
+
 navView.setOnNavigationItemSelectedListener {
 when(it.itemId){
 R.id.user -> replaceFragment()
