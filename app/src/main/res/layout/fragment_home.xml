@@ -124,6 +124,7 @@
 
 
                     <androidx.cardview.widget.CardView
+                        android:id="@+id/buscarDep"
                         android:layout_width="180dp"
                         android:layout_height="150dp"
                         android:layout_column="0"
@@ -276,6 +277,7 @@
         android:layout_gravity="bottom">
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/nav_view"
             android:layout_width="match_parent"
             android:layout_height="57dp"
             app:itemIconTint="@color/azulitoPrincipal"
