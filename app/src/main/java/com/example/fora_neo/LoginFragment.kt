@@ -33,6 +33,7 @@ class LoginFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
         binding = FragmentLoginBinding.inflate(inflater, container, false)
 
         auth = Firebase.auth
@@ -44,7 +45,7 @@ class LoginFragment : Fragment() {
             if (validate (email, pw)){
                 auth.signInWithEmailAndPassword(email, pw).addOnCompleteListener(requireActivity()){ task ->
                     if (task.isSuccessful) {
-                        findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
+                        startapp()
                     } else {
                         Log.d("Tag", "Error", task.exception)
                     }
@@ -68,5 +69,8 @@ class LoginFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+    }
+    fun startapp(){
+        findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
     }
 }

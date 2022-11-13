@@ -3,28 +3,96 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
     tools:context=".Signup">
 
     <!-- TODO: Update blank fragment layout -->
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_gravity="center"
-        android:layout_marginTop="36dp"
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-        >
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:layout_gravity="bottom"
+            android:src="@drawable/footer_vector" />
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Bienvenido!"
+        android:layout_marginTop="10dp"
+        android:textAlignment="center"
+        android:textColor="@color/azulitoPrincipal"
+        android:textSize="40sp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:gravity="center"
+        android:orientation="vertical">
+
+
         <EditText
-            android:id="@+id/et_user"
+            android:id="@+id/et_nombre"
             android:layout_width="wrap_content"
             android:layout_height="35dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/custom_input"
+            android:drawableStart="@drawable/custom_lock_icon"
+            android:drawablePadding="12dp"
+            android:ems="10"
+            android:hint="Nombre"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/et_apellido"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="32dp"
+            android:background="@drawable/custom_input"
+            android:drawableStart="@drawable/custom_lock_icon"
+            android:drawablePadding="12dp"
+            android:ems="10"
+            android:hint="Apellido"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/et_usuario"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/custom_input"
+            android:drawableStart="@drawable/custom_lock_icon"
+            android:drawablePadding="12dp"
+            android:ems="10"
+            android:hint="Usuario"
+            android:inputType="textPersonName" />
+
+
+        <EditText
+            android:id="@+id/et_correo"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_marginTop="16dp"
             android:background="@drawable/custom_input"
             android:drawableStart="@drawable/custom_person_icon"
             android:drawablePadding="12dp"
             android:ems="10"
-            android:inputType="textEmailAddress"
-            android:hint="Correo" />
+            android:hint="Correo"
+            android:inputType="textEmailAddress" />
 
         <EditText
             android:id="@+id/et_pw"
@@ -35,17 +103,43 @@
             android:drawableStart="@drawable/custom_lock_icon"
             android:drawablePadding="12dp"
             android:ems="10"
-            android:inputType="textPassword"
-            android:hint="Clave" />
+            android:hint="Clave"
+            android:inputType="textPassword" />
+
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:gravity="center_horizontal"
+        android:layout_marginBottom="40dp"
+        android:orientation="horizontal">
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btn_signup"
-            android:layout_width="210dp"
+            android:id="@+id/btn_regresar"
+            android:layout_width="150dp"
             android:layout_height="40dp"
-            android:layout_marginTop="24dp"
-            android:backgroundTint="#376DF6"
+            android:layout_marginHorizontal="10dp"
+
             android:background="@drawable/custom_button"
+            android:backgroundTint="@color/white"
+            android:text="Volver"
+            android:textColor="@color/azulitoPrincipal" />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_signup"
+            android:layout_width="150dp"
+            android:layout_height="40dp"
+            android:background="@drawable/custom_button"
+            android:backgroundTint="@color/white"
             android:text="Registrarse"
-            android:textColor="@color/white" />
+            android:layout_marginHorizontal="10dp"
+            android:textColor="@color/azulitoPrincipal" />
+
+
+
     </LinearLayout>
+
+
 </FrameLayout>
