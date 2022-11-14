@@ -66,5 +66,12 @@
         android:id="@+id/alquilarFragment"
         android:name="com.example.fora_neo.AlquilarFragment"
         android:label="fragment_alquilar"
-        tools:layout="@layout/fragment_alquilar" />
+        tools:layout="@layout/fragment_alquilar" >
+        <action
+            android:id="@+id/action_alquilarFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_alquilarFragment_to_userFragment"
+            app:destination="@id/userFragment" />
+    </fragment>
 </navigation>

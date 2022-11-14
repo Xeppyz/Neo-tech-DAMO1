@@ -49,6 +49,7 @@ class HomeFragment : Fragment() {
         binding = FragmentHomeBinding.inflate(layoutInflater)
         return binding.root
     }
+
     @Suppress("DEPRECATION")
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -67,9 +68,9 @@ class HomeFragment : Fragment() {
             true
         }
 
-binding.alquilarDep.setOnClickListener {
-    findNavController().navigate(R.id.action_homeFragment_to_alquilarFragment)
-}
+        binding.alquilarDep.setOnClickListener {
+            findNavController().navigate(R.id.action_homeFragment_to_alquilarFragment)
+        }
         binding.buscarDep.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment_to_searchFragment)
         }
