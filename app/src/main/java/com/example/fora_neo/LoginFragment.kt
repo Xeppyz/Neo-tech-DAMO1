@@ -22,10 +22,14 @@ class LoginFragment : Fragment() {
     private  lateinit var binding: FragmentLoginBinding
 
 
-    private lateinit var auth: FirebaseAuth
+    private var auth = FirebaseAuth.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        if(auth.currentUser != null){
+            startapp()
+        }
 
     }
 
@@ -36,7 +40,6 @@ class LoginFragment : Fragment() {
 
         binding = FragmentLoginBinding.inflate(inflater, container, false)
 
-        auth = Firebase.auth
 
         binding.button.setOnClickListener (View.OnClickListener {
             val email: String = binding.etUser.text.toString().trim() { it <= ' ' }
