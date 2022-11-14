@@ -11,6 +11,6 @@ class ApartamentoViewHolder(view: View) : RecyclerView.ViewHolder(view) {
     fun renderizar (apartamento: Apartamento) {
         binding.tvNombreApartamento.text = apartamento.nombreApartamento
         binding.tvDireccionApartamento.text = apartamento.direccionApartamento
-        binding.tvPrecioApartamento.text = apartamento.precioApartamento.toString()
+        binding.tvPrecioApartamento.text = apartamento.precioApartamento
     }
 }
