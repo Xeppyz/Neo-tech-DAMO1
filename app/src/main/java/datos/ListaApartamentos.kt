@@ -2,7 +2,7 @@ package datos
 
 class ListaApartamentos {
     companion object{
-        val listaApartamentos = listOf<Apartamento>(
+        val listaApartamentos = listOf(
             Apartamento(
                 nombreApartamento = "Casa Iver",
                 direccionApartamento = "De los semafaros de la ceibita",
