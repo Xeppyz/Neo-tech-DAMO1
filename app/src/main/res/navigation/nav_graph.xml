@@ -31,6 +31,9 @@
         <action
             android:id="@+id/action_homeFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_alquilarFragment"
+            app:destination="@id/alquilarFragment" />
     </fragment>
     <fragment
         android:id="@+id/searchFragment"
@@ -59,4 +62,9 @@
             android:id="@+id/action_signup_to_loginFragment"
             app:destination="@id/loginFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/alquilarFragment"
+        android:name="com.example.fora_neo.AlquilarFragment"
+        android:label="fragment_alquilar"
+        tools:layout="@layout/fragment_alquilar" />
 </navigation>

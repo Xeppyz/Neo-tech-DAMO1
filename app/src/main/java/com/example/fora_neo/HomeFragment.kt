@@ -67,7 +67,9 @@ class HomeFragment : Fragment() {
             true
         }
 
-
+binding.alquilarDep.setOnClickListener {
+    findNavController().navigate(R.id.action_homeFragment_to_alquilarFragment)
+}
         binding.buscarDep.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment_to_searchFragment)
         }
