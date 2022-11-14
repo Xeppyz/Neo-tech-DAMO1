@@ -16,6 +16,8 @@ class ApartamentoAdapter(private val listaApartamento:List<Apartamento>):Recycle
     }
 
     override fun onBindViewHolder(holder: ApartamentoViewHolder, position: Int) {
+        val item = listaApartamento[position]
+        holder.renderizar(item)
     }
 
     override fun getItemCount(): Int {

@@ -1,5 +1,6 @@
 package com.example.fora_neo
 
+import adapter.ApartamentoAdapter
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -8,7 +9,10 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.SearchView
 import androidx.navigation.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.fora_neo.databinding.FragmentSearchBinding
+import datos.ListaApartamentos
 
 
 class SearchFragment : Fragment() {
@@ -24,9 +28,10 @@ private lateinit var binding: FragmentSearchBinding
     ): View? {
 
         binding = FragmentSearchBinding.inflate(layoutInflater)
+        inicializarRecyclerView()
         return binding.root
-
     }
+
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -42,6 +47,12 @@ private lateinit var binding: FragmentSearchBinding
 
             it.findNavController().navigate(R.id.action_searchFragment_to_homeFragment)
         }
+
+    }
+
+    fun inicializarRecyclerView(){
+        binding.rvApartamento.layoutManager = LinearLayoutManager(activity)
+        binding.rvApartamento.adapter = ApartamentoAdapter(ListaApartamentos.listaApartamentos)
     }
 
 
