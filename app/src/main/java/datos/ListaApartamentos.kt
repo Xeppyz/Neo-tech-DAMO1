@@ -4,24 +4,29 @@ class ListaApartamentos {
     companion object{
         val listaApartamentos = listOf(
             Apartamento(
-                nombreApartamento = "Casa Iver",
-                direccionApartamento = "De los semafaros de la ceibita",
-                precioApartamento = "20.20"
+                "Casa Iver",
+                "De los semafaros de la ceibita",
+                "20.20",
+                "Iverson"
+
             ),
             Apartamento(
-                nombreApartamento = "Casa Allan",
-                direccionApartamento = "De los semafaros de la ceibita",
-                precioApartamento = "10.30"
+                "Casa Allan",
+                "De los semafaros de la ceibita",
+                "20.20",
+                "Allan"
             ),
             Apartamento(
-                nombreApartamento = "Casa Marcele",
-                direccionApartamento = "De los semafaros de la ceibita",
-                precioApartamento = "30.20"
+                "Casa Marcelo",
+                "De los semafaros de la ceibita",
+                "20.20",
+                "Marcelo"
             ),
             Apartamento(
-                nombreApartamento = "Casa Roberto",
-                direccionApartamento = "De los semafaros de la ceibita",
-                precioApartamento = "5.40"
+                "Casa Roberto",
+                "De los semafaros de la ceibita",
+                "20.20",
+                "Joserto"
             ),
         )
 
