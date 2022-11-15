@@ -65,14 +65,14 @@
         android:layout_gravity="bottom">
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/nav_view"
+            android:id="@+id/nav_vivienda"
             android:layout_width="match_parent"
             android:layout_height="57dp"
             app:itemBackground="@color/white"
             app:itemIconTint="@color/azulitoPrincipal"
             app:itemTextColor="@color/azulitoPrincipal"
             app:labelVisibilityMode="labeled"
-            app:menu="@menu/main_menu" />
+            app:menu="@menu/alquilar_vivienda" />
     </LinearLayout>
 
 </FrameLayout>

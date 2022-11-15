@@ -47,12 +47,15 @@
                 android:id="@+id/tvPropietario"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginVertical="17dp"
+                android:layout_marginVertical="40dp"
                 android:layout_marginStart="200dp"
                 android:textSize="14sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvNombreApartamento"
-                tools:text="Propietario" />
+                tools:text="Propietario"
+
+
+                />
 
 
             <ImageButton
