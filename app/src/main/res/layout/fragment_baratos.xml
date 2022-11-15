@@ -5,14 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    tools:context=".SearchFragment">
+    tools:context=".BaratosFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <ImageView
-            android:id="@+id/imageView2"
+            android:id="@+id/btnback"
             android:layout_width="30dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
@@ -20,20 +20,6 @@
             android:layout_marginBottom="16dp"
             app:srcCompat="@drawable/ic_arrow_back_ios_new" />
 
-        <EditText
-            android:id="@+id/etBuscar"
-            android:layout_width="230dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="35dp"
-            android:layout_marginStart="20dp"/>
-
-        <ImageButton
-            android:id="@+id/btnSearch"
-            android:layout_width="54dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="23dp"
-            android:backgroundTint="@color/white"
-            android:src="@drawable/ic_baseline_search_24" />
 
     </LinearLayout>
 

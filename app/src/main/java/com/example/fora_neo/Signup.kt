@@ -20,6 +20,7 @@ import com.google.firebase.auth.UserProfileChangeRequest
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.firestore.ktx.snapshots
 import com.google.firebase.ktx.Firebase
 import com.google.gson.Gson
 import org.json.JSONObject
@@ -28,8 +29,8 @@ import org.json.JSONObject
 class Signup : Fragment() {
 
     private lateinit var binding: FragmentSignupBinding
-    private lateinit var auth: FirebaseAuth
-    private lateinit var firestore:FirebaseFirestore
+    val auth = FirebaseAuth.getInstance()
+    val firestore = FirebaseFirestore.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,8 +44,7 @@ class Signup : Fragment() {
         // Inflate the layout for this fragment
         binding = FragmentSignupBinding.inflate(inflater, container, false)
 
-        auth = FirebaseAuth.getInstance()
-        firestore = Firebase.firestore
+
 
 
 
@@ -52,18 +52,20 @@ class Signup : Fragment() {
             val email: String = binding.etCorreo.text.toString().trim() { it <= ' ' }
             val pw: String = binding.etPw.text.toString().trim() { it <= ' ' }
             val name:String = binding.etNombre.text.toString().trim() {it <= ' '}
+            val secondName:String = binding.etApellido.text.toString().trim() {it <= ' '}
+            val username:String = binding.etUsuario.text.toString().trim() {it <= ' '}
 
 
             //val confirm_pw: String
 
-           signIn(email, pw, name)
+           signIn(email, pw, name, secondName, username)
 
 
         })
 
         return binding.root
     }
-    fun signIn(email:String, pw:String, name:String){
+    fun signIn(email:String, pw:String, name:String, scndName: String, username: String){
         if (validate(email, pw)){
             auth.createUserWithEmailAndPassword(email, pw)
                 .addOnSuccessListener {
@@ -87,7 +89,7 @@ class Signup : Fragment() {
                             }.show()
                         }
 
-
+                   uploadUserInfo(name, scndName, username, email)
                 }
                 .addOnFailureListener{
                     AlertDialog.Builder(activity).apply {
@@ -109,6 +111,26 @@ class Signup : Fragment() {
 
     fun validate(email: String?, pw: String?): Boolean {
         return ((email != null) && (pw != null)) && (pw.length >= 5) && (email.contains("@"))
+    }
+    fun uploadUserInfo(name:String, scndName:String, username:String, email:String){
+        val currentUserUID = auth.currentUser!!.uid
+
+
+        val userMap = HashMap<String, Any>()
+        userMap["uid"] = currentUserUID
+        userMap["name"] = name
+        userMap["secondName"] = scndName
+        userMap["email"] = email
+        userMap["username"] = username
+
+        firestore.collection("users").document(currentUserUID).set(userMap).addOnSuccessListener {
+            Toast.makeText(activity, "Yes", Toast.LENGTH_SHORT).show()
+        }.addOnFailureListener {
+            Toast.makeText(activity, "no", Toast.LENGTH_SHORT).show()
+        }
+
+
+
     }
 
 }

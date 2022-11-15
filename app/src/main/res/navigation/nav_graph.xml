@@ -34,6 +34,12 @@
         <action
             android:id="@+id/action_homeFragment_to_alquilarFragment"
             app:destination="@id/alquilarFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_recomendadosFragment"
+            app:destination="@id/recomendadosFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_baratosFragment"
+            app:destination="@id/baratosFragment" />
     </fragment>
     <fragment
         android:id="@+id/searchFragment"
@@ -73,5 +79,23 @@
         <action
             android:id="@+id/action_alquilarFragment_to_userFragment"
             app:destination="@id/userFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/recomendadosFragment"
+        android:name="com.example.fora_neo.RecomendadosFragment"
+        android:label="fragment_recomendados"
+        tools:layout="@layout/fragment_recomendados" >
+        <action
+            android:id="@+id/action_recomendadosFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/baratosFragment"
+        android:name="com.example.fora_neo.BaratosFragment"
+        android:label="fragment_baratos"
+        tools:layout="@layout/fragment_baratos" >
+        <action
+            android:id="@+id/action_baratosFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
     </fragment>
 </navigation>

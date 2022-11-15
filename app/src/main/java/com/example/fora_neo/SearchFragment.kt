@@ -22,13 +22,9 @@ class SearchFragment : Fragment() {
 
 private lateinit var binding: FragmentSearchBinding
 private val db = FirebaseFirestore.getInstance()
+   private var busq = ""
 
-private lateinit var lista:List<Apartamento>
-  private  var apartamento = Apartamento(
-        "Marcelos house",
-        "villa 9 de junio",
-        "100.00",
-        "Marcelo")
+private lateinit var lista:MutableList<Apartamento>
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -44,13 +40,21 @@ private lateinit var lista:List<Apartamento>
             apartamentos.forEachIndexed { index, apartamento ->
                 apartamento.uid = value.documents[index].id
 
-                inicializarRecyclerView(apartamentos)
+
             }
+            lista = apartamentos
+            inicializarRecyclerView(lista)
         }
 
 
 
+
         return binding.root
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
     }
 
 
@@ -58,16 +62,18 @@ private lateinit var lista:List<Apartamento>
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.searchView.setOnClickListener {
+        var aux = ""
 
-            it.findNavController().navigate(R.id.action_homeFragment_to_searchFragment)
-
+        binding.btnSearch.setOnClickListener {
+            aux = binding.etBuscar.text.toString().uppercase()
+            prueba(aux)
         }
-
         binding.imageView2.setOnClickListener {
 
             it.findNavController().navigate(R.id.action_searchFragment_to_homeFragment)
         }
+
+
 
 
     }
@@ -78,6 +84,20 @@ private lateinit var lista:List<Apartamento>
         binding.rvApartamento.adapter = ApartamentoAdapter(listaApart)
     }
 
+    fun prueba(busqueda:String){
+        var aux = ArrayList<Apartamento>()
+        lista.forEachIndexed { index, apartamento ->
+            if (busqueda.isNotBlank()){
+                if (apartamento.direccionApartamento!!.uppercase().equals(busqueda)){
+                   aux.add(apartamento)
+                }
+                inicializarRecyclerView(aux)
+            }else{
+                inicializarRecyclerView(lista)
+            }
+        }
+
+    }
 
 
 
