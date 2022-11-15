@@ -79,6 +79,9 @@
         <action
             android:id="@+id/action_alquilarFragment_to_userFragment"
             app:destination="@id/userFragment" />
+        <action
+            android:id="@+id/action_alquilarFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
     </fragment>
     <fragment
         android:id="@+id/recomendadosFragment"

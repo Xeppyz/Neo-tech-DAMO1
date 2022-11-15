@@ -38,17 +38,18 @@ class AlquilarFragment : Fragment() {
 
 
     }
+
     @Suppress("DEPRECATION")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val navView: BottomNavigationView = binding.navView
+        val navView: BottomNavigationView = binding.navVivienda
 
 
         navView.setOnNavigationItemSelectedListener {
-            when(it.itemId){
+            when (it.itemId) {
                 R.id.house -> fragmentHome()
-                R.id.user ->fragmentUsuario()
-
+                R.id.user -> fragmentUsuario()
+                R.id.vivienda -> fragmentBuscar()
 
             }
             true
@@ -64,20 +65,23 @@ class AlquilarFragment : Fragment() {
             db.collection("apartamentos").add(apartamento)
                 .addOnSuccessListener {
 
-                 }
-                .addOnFailureListener{
+                }
+                .addOnFailureListener {
                     android.app.AlertDialog.Builder(activity).apply {
                         setTitle("Error")
                         setMessage(it.message)
                     }.show()
                 }
+
+
             limpiar()
 
         }
 
     }
-    private fun limpiar(){
-        with(binding){
+
+    private fun limpiar() {
+        with(binding) {
             etPrecioApartamento.setText(" ")
             etNombreApartamento.setText(" ")
             etDireccionApartamento.setText(" ")
@@ -85,10 +89,13 @@ class AlquilarFragment : Fragment() {
         }
     }
 
-
+    private fun fragmentBuscar(){
+        findNavController().navigate(R.id.action_alquilarFragment_to_searchFragment)
+    }
     private fun fragmentHome() {
         findNavController().navigate(R.id.action_alquilarFragment_to_homeFragment)
     }
+
     private fun fragmentUsuario() {
         findNavController().navigate(R.id.action_alquilarFragment_to_userFragment)
     }
