@@ -32,7 +32,7 @@
             android:drawablePadding="12dp"
             android:ems="10"
             android:inputType="textEmailAddress"
-            android:hint="Usuario" />
+            android:hint="Correo electrónico" />
 
         <EditText
             android:id="@+id/et_pw"
@@ -44,7 +44,7 @@
             android:drawablePadding="12dp"
             android:ems="10"
             android:inputType="textPassword"
-            android:hint="Clave" />
+            android:hint="Contraseña" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/button"
@@ -53,7 +53,7 @@
             android:layout_marginTop="24dp"
             android:backgroundTint="#376DF6"
             android:background="@drawable/custom_button"
-            android:text="Iniciar sesion"
+            android:text="Iniciar sesión"
             android:textColor="@color/white" />
     </LinearLayout>
 
@@ -71,13 +71,13 @@
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Aun no tienes una cuenta?" />
+            android:text="¿Aún no tienes una cuenta?" />
 
         <TextView
             android:id="@+id/tv_signup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Registrate!"
+            android:text="¡Registrate!"
             android:textColor="#376DF6" />
 
     </LinearLayout>

@@ -81,7 +81,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="5dp"
                                 android:layout_marginTop="1dp"
-                                android:text="Cerrar sesion"
+                                android:text="Cerrar sesión"
                                 android:textColor="@color/gradientOrange"
                                 android:textStyle="bold" />
                         </LinearLayout>
@@ -215,7 +215,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentTop="true"
-                        android:text="Mas baratos"
+                        android:text="Más baratos"
                         android:textColor="#FFFFFF"
                         android:textSize="20sp"
                         android:textStyle="bold" />

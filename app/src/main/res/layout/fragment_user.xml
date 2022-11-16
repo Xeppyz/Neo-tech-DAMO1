@@ -61,7 +61,7 @@
                 android:id="@+id/tv_mail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Nuevo correo electronico."
+                android:text="Nuevo correo electrónico."
                 android:textSize="20sp"
                 android:layout_marginBottom="8dp"/>
 
@@ -81,7 +81,7 @@
                     android:drawablePadding="12dp"
                     android:ems="10"
                     android:inputType="textEmailAddress"
-                    android:hint="Correo electronico" />
+                    android:hint="Correo electrónico" />
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/btn_correo"
