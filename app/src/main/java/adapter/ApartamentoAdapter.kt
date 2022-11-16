@@ -23,18 +23,13 @@ class ApartamentoAdapter(private val listaApartamento:List<Apartamento>):Recycle
 
     override fun onBindViewHolder(holder: ApartamentoViewHolder, position: Int) {
         val item = listaApartamento[position]
-
         val likes = item.likes!!.toMutableList()
         val liked = likes.contains(auth.uid)
-            holder.renderizar(item)
+        holder.renderizar(item)
         holder.like(likes, liked, item)
-
-
     }
 
     override fun getItemCount(): Int {
         return listaApartamento.size
     }
-
-
 }

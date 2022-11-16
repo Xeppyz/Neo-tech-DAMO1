@@ -19,12 +19,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_gravity="center_horizontal"
+        android:layout_gravity="center"
+        android:gravity="center"
         android:layout_marginTop="36dp"
         >
         <EditText
             android:id="@+id/et_user"
-            android:layout_width="wrap_content"
+            android:layout_width="250dp"
             android:layout_height="35dp"
             android:background="@drawable/custom_input"
             android:drawableStart="@drawable/custom_person_icon"
@@ -35,7 +36,7 @@
 
         <EditText
             android:id="@+id/et_pw"
-            android:layout_width="wrap_content"
+            android:layout_width="250dp"
             android:layout_height="35dp"
             android:layout_marginTop="16dp"
             android:background="@drawable/custom_input"

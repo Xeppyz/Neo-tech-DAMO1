@@ -19,12 +19,6 @@ class ApartamentoViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         binding.tvDireccionApartamento.text = apartamento.direccionApartamento
         binding.tvPrecioApartamento.text = apartamento.precioApartamento
         binding.tvPropietario.text = apartamento.nombreUsuario
-
-
-
-
-
-
     }
 
     fun color(liked: Boolean){
