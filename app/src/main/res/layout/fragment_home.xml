@@ -132,20 +132,20 @@
                     android:padding="15dp">
 
 
-                    <!-- <ImageView
-                         android:layout_width="wrap_content"
-                         android:layout_height="wrap_content"
-                         android:layout_alignParentEnd="true"
+                    <ImageView
+                        android:layout_width="99dp"
+                        android:layout_height="83dp"
+                        android:layout_alignParentEnd="true"
 
-                         android:layout_alignParentBottom="true"
-                         android:layout_centerHorizontal="true"
-                         android:layout_marginEnd="17dp"
-                         android:layout_marginBottom="-24dp"
-                         android:adjustViewBounds="true"
-                         android:cropToPadding="true"
-                         android:maxHeight="120dp"
-                         android:rotation="0"
-                         <android:src="@drawable/isometric_search" />-->
+                        android:layout_alignParentBottom="true"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginEnd="-2dp"
+                        android:layout_marginBottom="-8dp"
+                        android:adjustViewBounds="true"
+                        android:cropToPadding="true"
+                        android:maxHeight="120dp"
+                        android:rotation="0"
+                        android:src="@drawable/casa" />
 
                     <TextView
                         android:id="@+id/tv_1"
@@ -185,6 +185,21 @@
                         android:textSize="20sp"
                         android:textStyle="bold" />
 
+                    <ImageView
+                        android:layout_width="108dp"
+                        android:layout_height="108dp"
+                        android:layout_alignParentEnd="true"
+
+                        android:layout_alignParentBottom="true"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginEnd="-8dp"
+                        android:layout_marginBottom="-19dp"
+                        android:adjustViewBounds="true"
+                        android:cropToPadding="true"
+                        android:maxHeight="120dp"
+                        android:rotation="0"
+                        android:src="@drawable/dolar" />
+
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
 
@@ -220,6 +235,21 @@
                         android:textSize="20sp"
                         android:textStyle="bold" />
 
+                    <ImageView
+                        android:layout_width="120dp"
+                        android:layout_height="100dp"
+                        android:layout_alignParentEnd="true"
+
+                        android:layout_alignParentBottom="true"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginEnd="-0.2dp"
+                        android:layout_marginBottom="-2dp"
+                        android:adjustViewBounds="true"
+                        android:cropToPadding="true"
+                        android:maxHeight="120dp"
+                        android:rotation="-90"
+                        android:src="@drawable/sale" />
+
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
 
@@ -249,6 +279,21 @@
                         android:textColor="#FFFFFF"
                         android:textSize="20sp"
                         android:textStyle="bold" />
+
+                    <ImageView
+                        android:layout_width="103dp"
+                        android:layout_height="78dp"
+                        android:layout_alignParentEnd="true"
+
+                        android:layout_alignParentBottom="true"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginEnd="-0.2dp"
+                        android:layout_marginBottom="5dp"
+                        android:adjustViewBounds="true"
+                        android:cropToPadding="true"
+                        android:maxHeight="120dp"
+                        android:rotation="0"
+                        android:src="@drawable/redheart" />
 
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
