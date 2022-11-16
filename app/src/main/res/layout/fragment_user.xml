@@ -6,8 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".UserFragment">
 
-
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -28,6 +26,7 @@
             android:layout_height="130dp"
             android:layout_gravity="center"
             android:src="@drawable/ic_user" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -39,7 +38,7 @@
                 android:text="Nombre Usuario"
                 android:textSize="22sp" />
 
-            <ImageView
+            <ImageButton
                 android:id="@+id/btnSettings"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -48,33 +47,54 @@
 
 
         </LinearLayout>
+
         <LinearLayout
             android:id="@+id/layout_setting"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:gravity="center"
-            android:layout_marginVertical="80dp"
-            android:visibility="gone">
+            android:layout_marginVertical="60dp"
+            android:visibility="visible">
 
             <TextView
                 android:id="@+id/tv_mail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Nuevo correo."
+                android:text="Nuevo correo electronico."
                 android:textSize="20sp"
                 android:layout_marginBottom="8dp"/>
 
-            <EditText
-                android:id="@+id/et_correo"
-                android:layout_width="wrap_content"
-                android:layout_height="35dp"
-                android:background="@drawable/custom_input"
-                android:drawableStart="@drawable/ic_baseline_mail_24"
-                android:drawablePadding="12dp"
-                android:ems="10"
-                android:inputType="textEmailAddress"
-                android:hint="Correo electronico" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/et_correo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+                    android:background="@drawable/custom_input"
+                    android:drawableStart="@drawable/ic_baseline_mail_24"
+                    android:drawablePadding="12dp"
+                    android:ems="10"
+                    android:inputType="textEmailAddress"
+                    android:hint="Correo electronico" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_correo"
+                    android:layout_width="210dp"
+                    android:layout_height="35dp"
+                    android:layout_marginTop="10dp"
+                    android:backgroundTint="#376DF6"
+                    android:background="@drawable/custom_button"
+                    android:text="Confirmar email"
+                    android:textColor="@color/white" />
+
+            </LinearLayout>
+
 
             <TextView
                 android:id="@+id/tv_o"
@@ -84,58 +104,55 @@
                 android:textSize="20sp"
                 android:layout_marginVertical="10dp"/>
 
-            <TextView
-                android:id="@+id/tv_pw"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Nueva clave."
-                android:textSize="20sp"
-                android:layout_marginBottom="8dp"/>
+                android:orientation="vertical"
+                android:gravity="center">
 
-            <EditText
-                android:id="@+id/et_pw"
-                android:layout_width="wrap_content"
-                android:layout_height="35dp"
-                android:background="@drawable/custom_input"
-                android:drawableStart="@drawable/ic_lock"
-                android:drawablePadding="12dp"
-                android:ems="10"
-                android:inputType="textEmailAddress"
-                android:hint="Clave" />
-            <EditText
-                android:id="@+id/et_pwConfirm"
-                android:layout_width="wrap_content"
-                android:layout_height="35dp"
-                android:background="@drawable/custom_input"
-                android:drawableStart="@drawable/ic_lock"
-                android:drawablePadding="12dp"
-                android:ems="10"
-                android:inputType="textEmailAddress"
-                android:hint="Confirmar clave"
-                android:layout_marginTop="10dp"/>
+                <TextView
+                    android:id="@+id/tv_pw"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Nueva clave del usuario"
+                    android:textSize="20sp"
+                    android:layout_marginBottom="8dp"/>
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btn_guardar"
-                android:layout_width="210dp"
-                android:layout_height="35dp"
-                android:layout_marginTop="24dp"
-                android:backgroundTint="#376DF6"
-                android:background="@drawable/custom_button"
-                android:text="Guardar datos"
-                android:textColor="@color/white" />
+                <EditText
+                    android:id="@+id/et_pw"
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+                    android:background="@drawable/custom_input"
+                    android:drawableStart="@drawable/ic_lock"
+                    android:drawablePadding="12dp"
+                    android:ems="10"
+                    android:inputType="textPassword"
+                    android:hint="Clave" />
+                <EditText
+                    android:id="@+id/et_pwConfirm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+                    android:background="@drawable/custom_input"
+                    android:drawableStart="@drawable/ic_lock"
+                    android:drawablePadding="12dp"
+                    android:ems="10"
+                    android:inputType="textPassword"
+                    android:hint="Confirmar clave"
+                    android:layout_marginTop="10dp"/>
 
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_guardarClave"
+                    android:layout_width="210dp"
+                    android:layout_height="35dp"
+                    android:layout_marginTop="10dp"
+                    android:backgroundTint="#376DF6"
+                    android:background="@drawable/custom_button"
+                    android:text="Confirmar contrasena"
+                    android:textColor="@color/white" />
 
+            </LinearLayout>
         </LinearLayout>
     </LinearLayout>
-
-
-
-
-
-
-
-
-
 
 
 
@@ -153,13 +170,7 @@
             app:itemTextColor="@color/azulitoPrincipal"
             app:backgroundTint="@color/white"
             app:labelVisibilityMode="labeled"
-            app:menu="@menu/main_menu"
-
-            />
-
-
+            app:menu="@menu/main_menu" />
     </LinearLayout>
-
-
 
 </FrameLayout>

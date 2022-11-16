@@ -2,6 +2,7 @@ package com.example.fora_neo
 
 import android.app.Activity
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.MenuItem
@@ -19,12 +20,17 @@ import com.example.fora_neo.databinding.FragmentHomeBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
+import datos.Usuario
 
 
+@Suppress("UNREACHABLE_CODE")
 class HomeFragment : Fragment() {
     private lateinit var binding: FragmentHomeBinding
     lateinit var toggle: ActionBarDrawerToggle
+    private val db = FirebaseFirestore.getInstance()
     lateinit var activityMainBinding: ActivityMainBinding
+    private lateinit var usuario:Usuario
 
     var auth = FirebaseAuth.getInstance()
 
@@ -38,6 +44,12 @@ class HomeFragment : Fragment() {
         toggle = ActionBarDrawerToggle(activity, drawerLayout, R.string.open, R.string.close)
         drawerLayout.addDrawerListener(toggle)
         toggle.syncState()*/
+        db.collection("users").document(auth.currentUser!!.uid).addSnapshotListener { value, error ->
+            usuario = value!!.toObject(Usuario::class.java)!!
+            binding.tvDisplayName.text = usuario.username!!.toString()
+            Log.i("username", usuario.username!!.toString())
+        }
+
 
 
     }
@@ -48,7 +60,11 @@ class HomeFragment : Fragment() {
     ): View? {
         binding = FragmentHomeBinding.inflate(layoutInflater)
         return binding.root
+
+
+
     }
+
     @Suppress("DEPRECATION")
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -67,7 +83,9 @@ class HomeFragment : Fragment() {
             true
         }
 
-
+        binding.alquilarDep.setOnClickListener {
+            findNavController().navigate(R.id.action_homeFragment_to_alquilarFragment)
+        }
         binding.buscarDep.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment_to_searchFragment)
         }
@@ -75,7 +93,18 @@ class HomeFragment : Fragment() {
             findNavController().navigate(R.id.action_homeFragment_to_loginFragment)
             auth.signOut()
         }
-        binding.tvDisplayName.text = auth.currentUser!!.displayName
+        binding.recomendados.setOnClickListener {
+            findNavController().navigate(R.id.action_homeFragment_to_recomendadosFragment)
+        }
+        binding.baratos.setOnClickListener {
+            findNavController().navigate(R.id.action_homeFragment_to_baratosFragment)
+        }
+
+
+
+
+        /*Toast.makeText(activity, usuario.username, Toast.LENGTH_SHORT).show()*/
+
 
 
     }

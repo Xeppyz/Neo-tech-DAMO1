@@ -1,5 +1,6 @@
 package com.example.fora_neo
 
+import android.content.DialogInterface
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -8,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.appcompat.app.AlertDialog
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.example.fora_neo.databinding.FragmentUserBinding
@@ -59,26 +61,62 @@ class UserFragment : Fragment() {
                 }
             }
 
-            btnGuardar.setOnClickListener {
-                validar()
+            btnCorreo.setOnClickListener{
+                val correo = etCorreo.text.toString()
+                validarCorreo(correo)
+            }
+            btnGuardarClave.setOnClickListener {
+                val clave = etPw.text.toString().trim() {it <= ' '}
+                val clave2 = etPwConfirm.text.toString().trim() {it <= ' '}
+
+                validarClave(clave, clave2)
             }
         }
 
     }
 
-    private fun validar(){
-        with(userBinding){
-            if (etCorreo.text.isBlank() && etPw.text.isBlank() && etPwConfirm.text.isBlank()){
-                Toast.makeText(activity, "No hay ningun dato ingresado", Toast.LENGTH_SHORT).show()
-            }
-            else if (etCorreo.text.isBlank() && etPw.text.isNotBlank() && etPwConfirm.text.isNotBlank()){
-                Toast.makeText(activity, "Contrasena guardada", Toast.LENGTH_SHORT).show()
-            }
-            else if (etCorreo.text.isNotBlank() && etPw.text.isBlank() && etPwConfirm.text.isBlank()){
-                Toast.makeText(activity, "Correo guardado", Toast.LENGTH_SHORT).show()
-            }
+    private fun validarCorreo(correo:String){
+        if (correo.isBlank()){
+           Toast.makeText(context, "Debes de ingresar un correo",Toast.LENGTH_SHORT).show()
+        }
+        else if(correo.equals(auth.currentUser!!.email)){
+            Toast.makeText(context, "El correo debe ser diferente al actual", Toast.LENGTH_SHORT).show()
+        }
+        else{
+            android.app.AlertDialog.Builder(activity).apply {
+                setTitle("Cambio de correo")
+                setMessage("¿Estas seguro que quieres cambiar el correo?")
+                setPositiveButton("Aceptar"){ _: DialogInterface, _: Int ->
+                    auth.currentUser!!.updateEmail(correo)
+                }
+                setNegativeButton("Cancelar"){ _: DialogInterface, _: Int ->
+
+                }
+            }.show()
+
+
         }
 
+    }
+
+    private fun validarClave(clave:String, clave2:String){
+        if (clave.equals(clave2)){
+            android.app.AlertDialog.Builder(activity).apply {
+                setTitle("Cambio de correo")
+                setMessage("¿Estas seguro que quieres cambiar el correo?")
+                setPositiveButton("Aceptar"){ _: DialogInterface, _: Int ->
+                    auth.currentUser!!.updatePassword(clave)
+                }
+                setNegativeButton("Cancelar"){ _: DialogInterface, _: Int ->
+
+                }
+            }.show()
+
+        }
+        else{
+            Toast.makeText(context, "Las contraseñas no coinciden", Toast.LENGTH_SHORT).show()
+        }
+        Toast.makeText(context, "Contraseña actualizada", Toast.LENGTH_SHORT).show()
     }
 
     private fun replaceFragment() {

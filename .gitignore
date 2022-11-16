@@ -1,1 +1,10 @@
+buildOutputCleanup.lock
+executionHistory.bin
+executionHistory.lock
+filehashes.bin
+filehashes.lock
+outputFiles.bin
+resourceHashesCache.bin
+
 .idea
+.gradle
