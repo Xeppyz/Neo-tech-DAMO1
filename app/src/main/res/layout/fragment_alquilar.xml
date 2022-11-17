@@ -6,6 +6,9 @@
     android:layout_height="match_parent"
     tools:context=".AlquilarFragment">
 
+
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -74,5 +77,27 @@
             app:labelVisibilityMode="labeled"
             app:menu="@menu/alquilar_vivienda" />
     </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+android:layout_gravity="top"
+        >
+
+
+        <ImageView
+            android:id="@+id/imgCasa"
+            android:layout_width="309dp"
+            android:layout_height="260dp"
+            android:src="@drawable/casa"
+            android:layout_marginEnd="50dp"
+            android:layout_marginStart="50dp"
+
+            />
+
+
+
+    </LinearLayout>
+
 
 </FrameLayout>

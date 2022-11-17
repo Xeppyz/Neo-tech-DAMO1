@@ -46,7 +46,9 @@ class Signup : Fragment() {
 
 
 
-
+binding.btnRegresar.setOnClickListener {
+    findNavController().navigate(R.id.action_signup_to_loginFragment)
+}
 
         binding.btnSignup.setOnClickListener (View.OnClickListener {
             val email: String = binding.etCorreo.text.toString().trim() { it <= ' ' }

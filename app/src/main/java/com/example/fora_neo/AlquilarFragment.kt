@@ -1,13 +1,21 @@
 package com.example.fora_neo
 
+import android.Manifest
+import android.content.pm.PackageManager
+import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.activity.result.PickVisualMediaRequest
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AlertDialog
+import androidx.core.content.ContextCompat
 import androidx.navigation.fragment.findNavController
 import com.example.fora_neo.databinding.FragmentAlquilarBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -23,6 +31,13 @@ class AlquilarFragment : Fragment() {
     val db = FirebaseFirestore.getInstance()
     lateinit var userFragment: UserFragment
 
+    val pickMedia = registerForActivityResult(ActivityResultContracts.PickVisualMedia()) { uri ->
+        if (uri != null)
+        {
+            binding.imgCasa.setImageURI(uri)
+        }
+
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -54,6 +69,10 @@ class AlquilarFragment : Fragment() {
             }
             true
         }
+
+        binding.imgCasa.setOnClickListener {
+            iniciarFoto()
+        }
         binding.btnConfirmarDatos.setOnClickListener {
             val nomApartamento = binding.etNombreApartamento.text.toString()
             val direccion = binding.etDireccionApartamento.text.toString()
@@ -80,6 +99,37 @@ class AlquilarFragment : Fragment() {
 
     }
 
+    private fun iniciarFoto() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            when {
+                ContextCompat.checkSelfPermission(
+                    binding.imgCasa.context, Manifest.permission.READ_EXTERNAL_STORAGE
+                ) == PackageManager.PERMISSION_GRANTED -> {
+                    lanzarFoto()
+                }
+                else-> requestPermissionLaucher.launch(Manifest.permission.READ_EXTERNAL_STORAGE)
+            }
+        }else{
+            lanzarFoto()
+        }
+    }
+
+    private val requestPermissionLaucher = registerForActivityResult(
+        ActivityResultContracts.RequestPermission()
+    ) { isGranted ->
+        if (isGranted) {
+            lanzarFoto()
+        } else {
+            Toast.makeText(context, "Habilitar los permisos", Toast.LENGTH_SHORT).show()
+        }
+
+    }
+
+
+    private fun lanzarFoto() {
+        pickMedia.launch(PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly))
+    }
+
     private fun limpiar() {
         with(binding) {
             etPrecioApartamento.setText(" ")
@@ -89,9 +139,10 @@ class AlquilarFragment : Fragment() {
         }
     }
 
-    private fun fragmentBuscar(){
+    private fun fragmentBuscar() {
         findNavController().navigate(R.id.action_alquilarFragment_to_searchFragment)
     }
+
     private fun fragmentHome() {
         findNavController().navigate(R.id.action_alquilarFragment_to_homeFragment)
     }
