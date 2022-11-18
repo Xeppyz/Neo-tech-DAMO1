@@ -7,26 +7,29 @@ class ListaApartamentos {
                 "Casa Iver",
                 "De los semafaros de la ceibita",
                 "20.20",
-                "Iverson"
-
+                "Iverson",
+                ""
             ),
             Apartamento(
                 "Casa Allan",
                 "De los semafaros de la ceibita",
                 "20.20",
-                "Allan"
+                "Allan",
+            ""
             ),
             Apartamento(
                 "Casa Marcelo",
                 "De los semafaros de la ceibita",
                 "20.20",
-                "Marcelo"
+                "Marcelo",
+            ""
             ),
             Apartamento(
                 "Casa Roberto",
                 "De los semafaros de la ceibita",
                 "20.20",
-                "Joserto"
+                "Joserto",
+            ""
             ),
         )
 

@@ -5,6 +5,7 @@ import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.MenuItem
@@ -21,6 +22,9 @@ import com.example.fora_neo.databinding.FragmentAlquilarBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.storage.FirebaseStorage
+import com.google.firebase.storage.StorageReference
+import com.google.firebase.storage.StorageTask
 import datos.Apartamento
 
 
@@ -30,11 +34,16 @@ class AlquilarFragment : Fragment() {
     val auth = FirebaseAuth.getInstance()
     val db = FirebaseFirestore.getInstance()
     lateinit var userFragment: UserFragment
+    private var storageApartPicRef: StorageReference? = null
+    private lateinit var imageUri: Uri
+    private var apid: String = " "
+
 
     val pickMedia = registerForActivityResult(ActivityResultContracts.PickVisualMedia()) { uri ->
-        if (uri != null)
-        {
+        if (uri != null) {
             binding.imgCasa.setImageURI(uri)
+
+            imageUri = uri
         }
 
     }
@@ -42,6 +51,7 @@ class AlquilarFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = FragmentAlquilarBinding.inflate(layoutInflater)
+        storageApartPicRef = FirebaseStorage.getInstance().reference.child("pics")
     }
 
     override fun onCreateView(
@@ -79,17 +89,22 @@ class AlquilarFragment : Fragment() {
             val precio = binding.etPrecioApartamento.text.toString().trim() { it <= ' ' }
             val nombreUs = auth.currentUser!!.displayName
 
-            val apartamento = Apartamento(nomApartamento, direccion, precio, nombreUs)
+            val apartamento = Apartamento(nomApartamento, direccion, precio, nombreUs, "template")
 
             db.collection("apartamentos").add(apartamento)
                 .addOnSuccessListener {
-
+                    val idap = it.id
+                    apid = idap
+                    Log.i("idap", idap)
                 }
                 .addOnFailureListener {
                     android.app.AlertDialog.Builder(activity).apply {
                         setTitle("Error")
                         setMessage(it.message)
                     }.show()
+                }
+                .addOnCompleteListener {
+                    uploadPic()
                 }
 
 
@@ -107,9 +122,9 @@ class AlquilarFragment : Fragment() {
                 ) == PackageManager.PERMISSION_GRANTED -> {
                     lanzarFoto()
                 }
-                else-> requestPermissionLaucher.launch(Manifest.permission.READ_EXTERNAL_STORAGE)
+                else -> requestPermissionLaucher.launch(Manifest.permission.READ_EXTERNAL_STORAGE)
             }
-        }else{
+        } else {
             lanzarFoto()
         }
     }
@@ -159,6 +174,40 @@ class AlquilarFragment : Fragment() {
 
         }
         return true
+    }
+
+    fun uploadPic() {
+        var downloadUrl = "https://images.all-free-download.com/images/graphiclarge/graphics_template_211519.jpg"
+        val fileRef = storageApartPicRef!!.child("$apid.jpg")
+            fileRef.putFile(imageUri).addOnSuccessListener {
+            val uriTask = it.storage.downloadUrl
+
+            while (!uriTask.isSuccessful);
+
+
+                if (uriTask.isSuccessful) {
+                    uriTask.addOnSuccessListener { uri ->
+                        downloadUrl = uri.toString()
+                        Log.i("download", downloadUrl)
+                        val doc = db.collection("apartamentos").document(apid)
+                        db.runTransaction {
+                            it.update(doc, "imageUrl", downloadUrl)
+                            null
+                        }
+                    }
+                        .addOnFailureListener {
+                            Log.i("download", downloadUrl)
+                        }
+
+                }
+
+
+
+        }
+
+
+
+
     }
 
 }

@@ -1,11 +1,13 @@
 package adapter
 
 import android.view.View
+import androidx.core.net.toUri
 import androidx.recyclerview.widget.RecyclerView
 import com.example.fora_neo.R
 import com.example.fora_neo.databinding.ApartamentoLayoutBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.squareup.picasso.Picasso
 import datos.Apartamento
 import datos.ListaApartamentos
 
@@ -19,6 +21,13 @@ class ApartamentoViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         binding.tvDireccionApartamento.text = apartamento.direccionApartamento
         binding.tvPrecioApartamento.text = apartamento.precioApartamento
         binding.tvPropietario.text = apartamento.nombreUsuario
+
+        Picasso.get()
+            .load(apartamento.imageUrl)
+            .error(R.mipmap.ic_launcher_round)
+            .into(binding.ivApartamento)
+
+        //binding.ivApartamento.setImageURI(apartamento.imageUrl!!.toUri())
     }
 
     fun color(liked: Boolean){
