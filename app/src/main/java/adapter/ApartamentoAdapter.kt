@@ -1,7 +1,9 @@
 package adapter
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.fora_neo.R
 import com.google.firebase.auth.FirebaseAuth
@@ -11,10 +13,11 @@ import datos.Apartamento
 import datos.ListaApartamentos
 import java.lang.Appendable
 
-class ApartamentoAdapter(private val listaApartamento:List<Apartamento>):RecyclerView.Adapter<ApartamentoViewHolder>() {
+class ApartamentoAdapter(private val listaApartamento:List<Apartamento>, activity: FragmentActivity?):RecyclerView.Adapter<ApartamentoViewHolder>() {
 
     private val db = FirebaseFirestore.getInstance()
     private val auth = FirebaseAuth.getInstance()
+    private val actividad = activity
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ApartamentoViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
@@ -25,7 +28,7 @@ class ApartamentoAdapter(private val listaApartamento:List<Apartamento>):Recycle
         val item = listaApartamento[position]
         val likes = item.likes!!.toMutableList()
         val liked = likes.contains(auth.uid)
-        holder.renderizar(item)
+        holder.renderizar(item, actividad)
         holder.like(likes, liked, item)
     }
 

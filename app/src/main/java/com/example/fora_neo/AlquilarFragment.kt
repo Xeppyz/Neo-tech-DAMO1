@@ -89,7 +89,7 @@ class AlquilarFragment : Fragment() {
             val precio = binding.etPrecioApartamento.text.toString().trim() { it <= ' ' }
             val nombreUs = auth.currentUser!!.displayName
 
-            val apartamento = Apartamento(nomApartamento, direccion, precio, nombreUs, "template")
+            val apartamento = Apartamento(nomApartamento, direccion, precio, nombreUs, "template", auth.currentUser!!.uid)
 
             db.collection("apartamentos").add(apartamento)
                 .addOnSuccessListener {
@@ -168,7 +168,6 @@ class AlquilarFragment : Fragment() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (toggle.onOptionsItemSelected(item)) {
-
 
             return true
 

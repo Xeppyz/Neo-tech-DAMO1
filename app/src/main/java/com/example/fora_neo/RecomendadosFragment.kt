@@ -52,7 +52,7 @@ class RecomendadosFragment : Fragment() {
     fun inicializarRecyclerView(listaApart: List<Apartamento>) {
         binding.rvApartamento.setHasFixedSize(true)
         binding.rvApartamento.layoutManager = LinearLayoutManager(activity)
-        binding.rvApartamento.adapter = ApartamentoAdapter(listaApart)
+        binding.rvApartamento.adapter = ApartamentoAdapter(listaApart, activity)
 
     }
     fun prueba(lista : List<Apartamento>){

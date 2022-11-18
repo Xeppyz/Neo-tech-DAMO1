@@ -8,6 +8,7 @@ data class Apartamento (
     val precioApartamento : String?,
     val nombreUsuario:String?,
     val imageUrl:String?,
+    val propId:String?,
     val likes:ArrayList<String>? = arrayListOf(),
 
 
@@ -17,6 +18,6 @@ data class Apartamento (
     @get:Exclude
     var uid:String? = null
 
-    constructor():this(null, null, null, null, null, null)
+    constructor():this(null, null, null, null, null, null, null)
 
 }

@@ -78,7 +78,7 @@ binding.btnRegresar.setOnClickListener {
                         .addOnSuccessListener {
                             AlertDialog.Builder(activity).apply {
                                 setTitle("Cuenta creada")
-                                setMessage(name)
+                                setMessage("Hola $name $scndName")
                                 setPositiveButton("Aceptar"){ _: DialogInterface, _: Int ->
                                     findNavController().navigate(R.id.action_signup_to_loginFragment)
                                 }
