@@ -150,6 +150,7 @@ class AlquilarFragment : Fragment() {
             etPrecioApartamento.setText(" ")
             etNombreApartamento.setText(" ")
             etDireccionApartamento.setText(" ")
+            imgCasa.setImageResource(R.drawable.casa)
             etNombreApartamento.requestFocus()
         }
     }
