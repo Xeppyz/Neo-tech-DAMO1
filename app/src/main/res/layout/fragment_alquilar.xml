@@ -47,7 +47,7 @@
             android:drawableStart="@drawable/fui_ic_microsoft_24dp"
             android:drawablePadding="12dp"
             android:ems="10"
-            android:inputType="textEmailAddress"
+            android:inputType="numberDecimal"
             android:hint="C$ 0.00"
             android:layout_marginTop="10dp"/>
 
