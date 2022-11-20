@@ -13,53 +13,93 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_gravity="center"
+        android:layout_gravity="top"
         android:gravity="center">
 
-        <EditText
-            android:id="@+id/etNombreApartamento"
+        <ImageView
+            android:id="@+id/imgVolver"
             android:layout_width="wrap_content"
-            android:layout_height="35dp"
-            android:background="@drawable/custom_input"
-            android:drawableStart="@drawable/ic_baseline_apartment_24"
-            android:drawablePadding="12dp"
-            android:ems="10"
-            android:inputType="textEmailAddress"
-            android:hint="Nombre" />
+            android:layout_height="40dp"
+            android:layout_marginVertical="40dp"
+            android:src="@drawable/ic_arrow_back_ios_new" />
 
-        <EditText
-            android:id="@+id/etDireccionApartamento"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginBottom="60dp"
+            android:orientation="vertical"
+            >
+
+
+            <ImageView
+                android:id="@+id/imgCasa"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/add_icon_png_10"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Agregar imagen del \ndepartamento"
+                android:textAlignment="center"
+                android:textSize="25sp"
+                />
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="35dp"
-            android:background="@drawable/custom_input"
-            android:drawableStart="@drawable/ic_baseline_house_24"
-            android:drawablePadding="12dp"
-            android:ems="10"
-            android:inputType="textEmailAddress"
-            android:hint="Dirección"
-            android:layout_marginTop="10dp"/>
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center">
 
-        <EditText
-            android:id="@+id/etPrecioApartamento"
-            android:layout_width="wrap_content"
-            android:layout_height="35dp"
-            android:background="@drawable/custom_input"
-            android:drawableStart="@drawable/fui_ic_microsoft_24dp"
-            android:drawablePadding="12dp"
-            android:ems="10"
-            android:inputType="numberDecimal"
-            android:hint="C$ 0.00"
-            android:layout_marginTop="10dp"/>
+            <EditText
+                android:id="@+id/etNombreApartamento"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:background="@drawable/custom_input"
+                android:drawableStart="@drawable/ic_baseline_apartment_24"
+                android:drawablePadding="12dp"
+                android:ems="10"
+                android:inputType="textEmailAddress"
+                android:hint="Nombre" />
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btnConfirmarDatos"
-            android:layout_width="210dp"
-            android:layout_height="35dp"
-            android:layout_marginTop="10dp"
-            android:backgroundTint="#376DF6"
-            android:background="@drawable/custom_button"
-            android:text="Confirmar datos"
-            android:textColor="@color/white" />
+            <EditText
+                android:id="@+id/etDireccionApartamento"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:background="@drawable/custom_input"
+                android:drawableStart="@drawable/ic_baseline_house_24"
+                android:drawablePadding="12dp"
+                android:ems="10"
+                android:inputType="textEmailAddress"
+                android:hint="Dirección"
+                android:layout_marginTop="15dp"/>
+
+            <EditText
+                android:id="@+id/etPrecioApartamento"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:background="@drawable/custom_input"
+                android:drawableStart="@drawable/ic_monetization_48"
+                android:drawablePadding="12dp"
+                android:ems="10"
+                android:inputType="numberDecimal"
+                android:hint="C$ 0.00"
+                android:layout_marginTop="15dp"/>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnConfirmarDatos"
+                android:layout_width="210dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="50dp"
+                android:backgroundTint="#376DF6"
+                android:background="@drawable/custom_button"
+                android:text="Confirmar datos"
+                android:textColor="@color/white"
+                />
+
+        </LinearLayout>
 
     </LinearLayout>
     <LinearLayout
@@ -77,27 +117,5 @@
             app:labelVisibilityMode="labeled"
             app:menu="@menu/alquilar_vivienda" />
     </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-android:layout_gravity="top"
-        >
-
-
-        <ImageView
-            android:id="@+id/imgCasa"
-            android:layout_width="309dp"
-            android:layout_height="260dp"
-            android:src="@drawable/casa"
-            android:layout_marginEnd="50dp"
-            android:layout_marginStart="50dp"
-
-            />
-
-
-
-    </LinearLayout>
-
 
 </FrameLayout>

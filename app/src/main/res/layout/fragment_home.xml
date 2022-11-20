@@ -69,7 +69,7 @@
                                 android:id="@+id/tvDisplayName"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginLeft="5dp"
+                                android:layout_marginStart="5dp"
                                 android:text="Jduran"
                                 android:textColor="@color/azulitoPrincipal"
                                 android:textSize="20sp"
@@ -322,28 +322,4 @@
 
 
     </LinearLayout>
-
-
-    <!--<SearchView
-        android:id="@+id/searchView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="16dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginBottom="16dp"
-        android:background="@drawable/custom_search_view"
-        android:iconifiedByDefault="false"
-        android:queryHint="Buscar apartamentos"
-        />-->
-
-
-    <!--<com.google.android.material.navigation.NavigationView
-        android:id="@+id/nav_view"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_gravity="start"
-        android:fitsSystemWindows="true"
-        app:headerLayout="@layout/header_nav"
-        app:menu="@menu/main_menu" />-->
-
 </FrameLayout>

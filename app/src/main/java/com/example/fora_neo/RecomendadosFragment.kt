@@ -44,7 +44,7 @@ class RecomendadosFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        binding.btnback.setOnClickListener {
+        binding.imgVolver.setOnClickListener {
             findNavController().navigate(R.id.action_recomendadosFragment_to_homeFragment)
         }
     }

@@ -9,16 +9,15 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:gravity="center">
 
         <ImageView
-            android:id="@+id/btnback"
-            android:layout_width="30dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="37dp"
-            android:layout_marginBottom="16dp"
-            app:srcCompat="@drawable/ic_arrow_back_ios_new" />
+            android:id="@+id/btnBack"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginVertical="20dp"
+            android:src="@drawable/ic_arrow_back_ios_new" />
 
 
     </LinearLayout>

@@ -45,7 +45,7 @@ class BaratosFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        binding.btnback.setOnClickListener {
+        binding.btnBack.setOnClickListener {
             findNavController().navigate(R.id.action_baratosFragment_to_homeFragment)
         }
     }

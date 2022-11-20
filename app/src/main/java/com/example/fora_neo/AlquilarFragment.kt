@@ -17,6 +17,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.example.fora_neo.databinding.FragmentAlquilarBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -60,9 +61,8 @@ class AlquilarFragment : Fragment() {
     ): View? {
         binding = FragmentAlquilarBinding.inflate(layoutInflater)
         return binding.root
-
-
     }
+
 
     @Suppress("DEPRECATION")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -80,6 +80,10 @@ class AlquilarFragment : Fragment() {
             true
         }
 
+        binding.imgVolver.setOnClickListener {
+            it.findNavController().navigate(R.id.action_alquilarFragment_to_homeFragment)
+        }
+
         binding.imgCasa.setOnClickListener {
             iniciarFoto()
         }
@@ -89,7 +93,14 @@ class AlquilarFragment : Fragment() {
             val precio = binding.etPrecioApartamento.text.toString().trim() { it <= ' ' }
             val nombreUs = auth.currentUser!!.displayName
 
-            val apartamento = Apartamento(nomApartamento, direccion, precio, nombreUs, "template", auth.currentUser!!.uid)
+            val apartamento = Apartamento(
+                nomApartamento,
+                direccion,
+                precio,
+                nombreUs,
+                "template",
+                auth.currentUser!!.uid
+            )
 
             db.collection("apartamentos").add(apartamento)
                 .addOnSuccessListener {
@@ -177,37 +188,30 @@ class AlquilarFragment : Fragment() {
     }
 
     fun uploadPic() {
-        var downloadUrl = "https://images.all-free-download.com/images/graphiclarge/graphics_template_211519.jpg"
+        var downloadUrl =
+            "https://images.all-free-download.com/images/graphiclarge/graphics_template_211519.jpg"
         val fileRef = storageApartPicRef!!.child("$apid.jpg")
-            fileRef.putFile(imageUri).addOnSuccessListener {
+        fileRef.putFile(imageUri).addOnSuccessListener {
             val uriTask = it.storage.downloadUrl
 
             while (!uriTask.isSuccessful);
 
 
-                if (uriTask.isSuccessful) {
-                    uriTask.addOnSuccessListener { uri ->
-                        downloadUrl = uri.toString()
-                        Log.i("download", downloadUrl)
-                        val doc = db.collection("apartamentos").document(apid)
-                        db.runTransaction {
-                            it.update(doc, "imageUrl", downloadUrl)
-                            null
-                        }
+            if (uriTask.isSuccessful) {
+                uriTask.addOnSuccessListener { uri ->
+                    downloadUrl = uri.toString()
+                    Log.i("download", downloadUrl)
+                    val doc = db.collection("apartamentos").document(apid)
+                    db.runTransaction {
+                        it.update(doc, "imageUrl", downloadUrl)
+                        null
                     }
-                        .addOnFailureListener {
-                            Log.i("download", downloadUrl)
-                        }
-
                 }
-
-
-
+                    .addOnFailureListener {
+                        Log.i("download", downloadUrl)
+                    }
+            }
         }
-
-
-
-
     }
 
 }
