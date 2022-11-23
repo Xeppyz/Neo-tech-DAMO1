@@ -125,39 +125,50 @@
                 android:layout_height="150dp"
                 app:cardCornerRadius="15dp">
 
-                <RelativeLayout
+                <FrameLayout
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:background="@drawable/card_home"
                     android:padding="15dp">
 
 
-                    <ImageView
-                        android:layout_width="99dp"
-                        android:layout_height="83dp"
-                        android:layout_alignParentEnd="true"
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
 
-                        android:layout_alignParentBottom="true"
-                        android:layout_centerHorizontal="true"
-                        android:layout_marginEnd="-2dp"
-                        android:layout_marginBottom="-8dp"
-                        android:adjustViewBounds="true"
-                        android:cropToPadding="true"
-                        android:maxHeight="120dp"
-                        android:rotation="0"
-                        android:src="@drawable/casa" />
+                        <TextView
+                            android:id="@+id/tv_1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentTop="true"
+                            android:text="Buscar apartamentos"
+                            android:textColor="#FFFFFF"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"/>
 
-                    <TextView
-                        android:id="@+id/tv_1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentTop="true"
-                        android:text="Buscar apartamentos"
-                        android:textColor="#FFFFFF"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
+                        <ImageView
+                            android:layout_width="99dp"
+                            android:layout_height="83dp"
+                            android:layout_alignParentEnd="true"
 
-                </RelativeLayout>
+                            android:layout_alignParentBottom="true"
+                            android:layout_centerHorizontal="true"
+                            android:adjustViewBounds="true"
+                            android:cropToPadding="true"
+                            android:maxHeight="120dp"
+                            android:rotation="0"
+                            android:src="@drawable/casa"
+                            app:layout_constraintEnd_toEndOf="@+id/tv_1"
+                            app:layout_constraintTop_toBottomOf="@+id/tv_1"
+                            app:layout_constraintBottom_toBottomOf="parent"/>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                </FrameLayout>
             </androidx.cardview.widget.CardView>
 
             <View
@@ -219,38 +230,52 @@
                 android:layout_height="150dp"
                 app:cardCornerRadius="15dp">
 
-                <RelativeLayout
+                <FrameLayout
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:background="@drawable/card_home_2"
                     android:padding="15dp">
 
-                    <TextView
-                        android:id="@+id/tv_3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentTop="true"
-                        android:text="Más baratos"
-                        android:textColor="#FFFFFF"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="150dp"
+                        android:layout_height="match_parent">
 
-                    <ImageView
-                        android:layout_width="120dp"
-                        android:layout_height="100dp"
-                        android:layout_alignParentEnd="true"
+                        <TextView
+                            android:id="@+id/tv_3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentTop="true"
+                            android:text="Más baratos"
+                            android:textColor="#FFFFFF"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
 
-                        android:layout_alignParentBottom="true"
-                        android:layout_centerHorizontal="true"
-                        android:layout_marginEnd="-0.2dp"
-                        android:layout_marginBottom="-2dp"
-                        android:adjustViewBounds="true"
-                        android:cropToPadding="true"
-                        android:maxHeight="120dp"
-                        android:rotation="-90"
-                        android:src="@drawable/sale" />
+                        <ImageView
+                            android:layout_width="99dp"
+                            android:layout_height="83dp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_alignParentBottom="true"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="11dp"
+                            android:adjustViewBounds="true"
+                            android:cropToPadding="true"
+                            android:maxHeight="120dp"
+                            android:rotation="0"
+                            android:layout_marginStart="45dp"
+                            android:src="@drawable/cheap"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/tv_3" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
 
-                </RelativeLayout>
+
+
+
+
+                </FrameLayout>
             </androidx.cardview.widget.CardView>
 
             <View
@@ -264,38 +289,50 @@
 
                 app:cardCornerRadius="15dp">
 
-                <RelativeLayout
+                <FrameLayout
                     android:layout_width="190dp"
                     android:layout_height="match_parent"
                     android:background="@drawable/card_home_4"
                     android:padding="15dp">
 
-                    <TextView
-                        android:id="@+id/tv_4"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentTop="true"
-                        android:text="Recomendados"
-                        android:textColor="#FFFFFF"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="150dp"
+                        android:layout_height="match_parent">
+                        <TextView
+                            android:id="@+id/tv_4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentTop="true"
+                            android:text="Recomendados"
+                            android:textColor="#FFFFFF"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"/>
 
-                    <ImageView
-                        android:layout_width="103dp"
-                        android:layout_height="78dp"
-                        android:layout_alignParentEnd="true"
+                        <ImageView
+                            android:layout_width="99dp"
+                            android:layout_height="83dp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_alignParentBottom="true"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="11dp"
+                            android:adjustViewBounds="true"
+                            android:cropToPadding="true"
+                            android:maxHeight="120dp"
+                            android:rotation="0"
+                            android:layout_marginStart="45dp"
+                            android:src="@drawable/liked"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/tv_4" />
 
-                        android:layout_alignParentBottom="true"
-                        android:layout_centerHorizontal="true"
-                        android:layout_marginEnd="-0.2dp"
-                        android:layout_marginBottom="5dp"
-                        android:adjustViewBounds="true"
-                        android:cropToPadding="true"
-                        android:maxHeight="120dp"
-                        android:rotation="0"
-                        android:src="@drawable/redheart" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
 
-                </RelativeLayout>
+
+
+                </FrameLayout>
             </androidx.cardview.widget.CardView>
 
 

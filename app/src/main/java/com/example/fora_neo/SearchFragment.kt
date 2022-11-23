@@ -20,11 +20,11 @@ import datos.ListaApartamentos
 
 class SearchFragment : Fragment() {
 
-private lateinit var binding: FragmentSearchBinding
-private val db = FirebaseFirestore.getInstance()
-   private var busq = ""
+    private lateinit var binding: FragmentSearchBinding
+    private val db = FirebaseFirestore.getInstance()
+    private var busq = ""
 
-private lateinit var lista:MutableList<Apartamento>
+    private lateinit var lista: MutableList<Apartamento>
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -58,7 +58,6 @@ private lateinit var lista:MutableList<Apartamento>
     }
 
 
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -74,31 +73,28 @@ private lateinit var lista:MutableList<Apartamento>
         }
 
 
-
-
     }
 
-    fun inicializarRecyclerView(listaApart:List<Apartamento>){
+    fun inicializarRecyclerView(listaApart: List<Apartamento>) {
         binding.rvApartamento.setHasFixedSize(true)
         binding.rvApartamento.layoutManager = LinearLayoutManager(activity)
         binding.rvApartamento.adapter = ApartamentoAdapter(listaApart, activity)
     }
 
-    fun prueba(busqueda:String){
+    fun prueba(busqueda: String) {
         var aux = ArrayList<Apartamento>()
         lista.forEachIndexed { index, apartamento ->
-            if (busqueda.isNotBlank()){
-                if (apartamento.direccionApartamento!!.uppercase().equals(busqueda)){
-                   aux.add(apartamento)
+            if (busqueda.isNotBlank()) {
+                if (apartamento.direccionApartamento!!.uppercase().equals(busqueda)) {
+                    aux.add(apartamento)
                 }
                 inicializarRecyclerView(aux)
-            }else{
+            } else {
                 inicializarRecyclerView(lista)
             }
         }
 
     }
-
 
 
 }
