@@ -50,6 +50,9 @@
         <action
             android:id="@+id/action_searchFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_searchFragment_to_infoFragment"
+            app:destination="@id/infoFragment" />
     </fragment>
     <fragment
         android:id="@+id/userFragment"
@@ -92,6 +95,9 @@
         <action
             android:id="@+id/action_recomendadosFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_recomendadosFragment_to_infoFragment"
+            app:destination="@id/infoFragment" />
     </fragment>
     <fragment
         android:id="@+id/baratosFragment"
@@ -101,5 +107,23 @@
         <action
             android:id="@+id/action_baratosFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_baratosFragment_to_infoFragment"
+            app:destination="@id/infoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/infoFragment"
+        android:name="com.example.fora_neo.InfoFragment"
+        android:label="fragment_info"
+        tools:layout="@layout/fragment_info" >
+        <action
+            android:id="@+id/action_infoFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
+        <action
+            android:id="@+id/action_infoFragment_to_recomendadosFragment"
+            app:destination="@id/recomendadosFragment" />
+        <action
+            android:id="@+id/action_infoFragment_to_baratosFragment"
+            app:destination="@id/baratosFragment" />
     </fragment>
 </navigation>

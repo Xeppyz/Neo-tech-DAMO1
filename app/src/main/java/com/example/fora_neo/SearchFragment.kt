@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.SearchView
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.fora_neo.databinding.FragmentSearchBinding
@@ -23,6 +24,7 @@ class SearchFragment : Fragment() {
     private lateinit var binding: FragmentSearchBinding
     private val db = FirebaseFirestore.getInstance()
     private var busq = ""
+    var idp = ""
 
     private lateinit var lista: MutableList<Apartamento>
 
@@ -76,9 +78,13 @@ class SearchFragment : Fragment() {
     }
 
     fun inicializarRecyclerView(listaApart: List<Apartamento>) {
+        var ex = findNavController()
+        var ff = getParentFragmentManager()
         binding.rvApartamento.setHasFixedSize(true)
         binding.rvApartamento.layoutManager = LinearLayoutManager(activity)
-        binding.rvApartamento.adapter = ApartamentoAdapter(listaApart, activity)
+        binding.rvApartamento.adapter = ApartamentoAdapter(listaApart, activity, ex)
+        idp = ApartamentoAdapter(listaApart, activity, ex).id
+
     }
 
     fun prueba(busqueda: String) {

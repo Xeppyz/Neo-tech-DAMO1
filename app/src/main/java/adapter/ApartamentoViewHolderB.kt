@@ -1,36 +1,29 @@
 package adapter
 
 import android.app.AlertDialog
+import android.content.Context
 import android.content.DialogInterface
 import android.os.Bundle
-import android.text.Layout
 import android.view.View
 import android.widget.Toast
-import androidx.core.net.toUri
 import androidx.fragment.app.FragmentActivity
-import androidx.fragment.app.FragmentManager
 import androidx.navigation.NavController
-import androidx.navigation.fragment.NavHostFragment.Companion.findNavController
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
-import com.example.fora_neo.InfoFragment
 import com.example.fora_neo.R
 import com.example.fora_neo.databinding.ApartamentoLayoutBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
-import com.google.firebase.storage.StorageReference
 import com.squareup.picasso.Picasso
 import datos.Apartamento
-import datos.ListaApartamentos
 
-class ApartamentoViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+class ApartamentoViewHolderB(view: View) : RecyclerView.ViewHolder(view) {
     val auth = FirebaseAuth.getInstance()
     private var storageApartPicRef = FirebaseStorage.getInstance().reference.child("pics")
     val db = FirebaseFirestore.getInstance()
     val binding = ApartamentoLayoutBinding.bind(view)
-     var liked:Boolean = false
-    fun renderizar (apartamento: Apartamento, context:FragmentActivity?) {
+    var liked:Boolean = false
+    fun renderizar (apartamento: Apartamento, context: FragmentActivity?) {
         binding.tvNombreApartamento.text = apartamento.nombreApartamento
         binding.tvDireccionApartamento.text = apartamento.direccionApartamento
         binding.tvPrecioApartamento.text = apartamento.precioApartamento
@@ -56,7 +49,7 @@ class ApartamentoViewHolder(view: View) : RecyclerView.ViewHolder(view) {
                     }
 
                 }
-                setNegativeButton("Cancelar"){ _:DialogInterface, _:Int ->
+                setNegativeButton("Cancelar"){ _: DialogInterface, _:Int ->
 
                 }
             }.show()
@@ -103,16 +96,17 @@ class ApartamentoViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         }
         binding.tvLikesCount.text = likes.size.toString()
     }
-    fun clicked(control:NavController, apartamento: Apartamento) :String{
+    fun clicked(control: NavController, apartamento: Apartamento, context:String) :String{
         var clicked = " "
         binding.ivApartamento.setOnClickListener {
 
             clicked = apartamento.uid!!
-            var bundle:Bundle? = Bundle()
+            var bundle: Bundle? = Bundle()
 
             bundle!!.putString("pid", clicked)
+            bundle.putString("context", context)
 
-            control.navigate(R.id.action_searchFragment_to_infoFragment, bundle)
+            control.navigate(R.id.action_baratosFragment_to_infoFragment, bundle)
 
 
         }

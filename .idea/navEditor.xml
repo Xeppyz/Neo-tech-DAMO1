@@ -24,6 +24,11 @@
                                 <LayoutPositions />
                               </value>
                             </entry>
+                            <entry key="action_alquilarFragment_to_searchFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
                             <entry key="action_alquilarFragment_to_userFragment">
                               <value>
                                 <LayoutPositions />
@@ -43,6 +48,15 @@
                             <option name="y" value="505" />
                           </Point>
                         </option>
+                        <option name="myPositions">
+                          <map>
+                            <entry key="action_baratosFragment_to_homeFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                          </map>
+                        </option>
                       </LayoutPositions>
                     </value>
                   </entry>
@@ -58,6 +72,11 @@
                         <option name="myPositions">
                           <map>
                             <entry key="action_homeFragment_to_alquilarFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                            <entry key="action_homeFragment_to_baratosFragment">
                               <value>
                                 <LayoutPositions />
                               </value>
@@ -83,6 +102,18 @@
                               </value>
                             </entry>
                           </map>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
+                  <entry key="infoFragment">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="1265" />
+                            <option name="y" value="215" />
+                          </Point>
                         </option>
                       </LayoutPositions>
                     </value>

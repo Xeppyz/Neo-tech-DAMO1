@@ -1,6 +1,7 @@
 package com.example.fora_neo
 
 import adapter.ApartamentoAdapter
+import adapter.ApartamentoAdapterB
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -18,6 +19,7 @@ class BaratosFragment : Fragment() {
     private lateinit var binding: FragmentBaratosBinding
     private lateinit var lista:MutableList<Apartamento>
     private val db = FirebaseFirestore.getInstance()
+    var tags = "baratos"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,9 +53,11 @@ class BaratosFragment : Fragment() {
     }
 
     fun inicializarRecyclerView(listaApart: List<Apartamento>) {
+        var ex = findNavController()
         binding.rvApartamento.setHasFixedSize(true)
         binding.rvApartamento.layoutManager = LinearLayoutManager(activity)
-        binding.rvApartamento.adapter = ApartamentoAdapter(listaApart, activity)
+        binding.rvApartamento.adapter = ApartamentoAdapterB(listaApart, activity, ex, tags)
+
 
     }
     fun prueba(lista : List<Apartamento>){

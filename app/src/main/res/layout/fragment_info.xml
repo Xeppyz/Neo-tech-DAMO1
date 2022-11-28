@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".InfoFragment">
+
+
+
+    <ImageButton
+        android:id="@+id/btnBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_arrow_back_ios_new"
+        android:backgroundTint="@color/white"/>
+
+    <LinearLayout
+        android:layout_marginTop="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="600dp"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/ivApartamento"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="10dp"/>
+        <TextView
+            android:id="@+id/tvNombreApartamento"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nombre del apartamento"/>
+        <TextView
+            android:id="@+id/tvDireccionApartamento"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Direccion"
+            android:layout_marginTop="5dp"
+            android:layout_gravity="center"/>
+        <TextView
+            android:id="@+id/tvPrecioApartamento"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Precio"
+            android:layout_marginTop="5dp"
+            android:layout_gravity="center"/>
+        <TextView
+            android:id="@+id/tvPropietario"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dueño"
+            android:layout_marginTop="5dp"
+            android:layout_gravity="center"/>
+
+    </LinearLayout>
+
+</FrameLayout>
