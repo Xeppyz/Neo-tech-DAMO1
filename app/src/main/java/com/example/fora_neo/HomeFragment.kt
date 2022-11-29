@@ -76,6 +76,7 @@ class HomeFragment : Fragment() {
 
         navView.setOnNavigationItemSelectedListener {
             when (it.itemId) {
+                R.id.fav -> favragment()
                 R.id.user -> replaceFragment()
                 R.id.house -> Toast.makeText(context, "Ya estás en Home", Toast.LENGTH_SHORT).show()
 
@@ -111,6 +112,9 @@ class HomeFragment : Fragment() {
 
     private fun replaceFragment() {
         findNavController().navigate(R.id.action_homeFragment_to_userFragment)
+    }
+    private fun favragment() {
+        findNavController().navigate(R.id.action_homeFragment_to_recomendadosFragment)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

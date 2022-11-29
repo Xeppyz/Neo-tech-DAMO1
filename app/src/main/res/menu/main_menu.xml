@@ -18,9 +18,9 @@ tools:showIn = "navigation_view"
             android:title="Inicio" />
 
         <item
-            android:id="@+id/settings"
-            android:icon="@drawable/ic_settings"
-            android:title="Opciones" />
+            android:id="@+id/fav"
+            android:icon="@drawable/heart"
+            android:title="Fav" />
 
 
     </group>
